@@ -37,6 +37,7 @@ We can start with a few countries, also to test what the unified format can look
 
 - [Netherlands](https://www.nederlandwereldwijd.nl/reisadvies)
     - My country, so lets feed my patriotism
+    - I can feed my nationalism by there being an [API](https://apis.developer.overheid.nl/apis/minbz-nederland-wereldwijd#:~:text=Nederland%20Wereldwijd%20Open%20Data%20API,en%20hulp%2Dbij%2Dnood.)!!!
 - [UK](https://www.gov.uk/foreign-travel-advice)
     - Website is [open source](https://github.com/alphagov/travel-advice-publisher) (good for the UK!!!). The website uses an [API](https://github.com/alphagov/travel-advice-publisher/blob/main/docs/further_technical_information.md). We should be able to reverse engineer this!
 - [USA](https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html/)
