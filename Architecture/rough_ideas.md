@@ -1,9 +1,13 @@
 # Rough idea 
 
-How to collect all travel advices from goverment
+We need to collect the data, harmonize it and then visualize it. Preferably as automatic as possible.
+
+## In general
+
+In general, I want to use Python to collect the data and also setup a database (basically the tool I know)
+- At first, I will work with a nice SQLite-database. Using SQLalchemy we can make sure we can relatively easily use another type of database, ensuring flexibility.
 
 ## Collection
-
 Governments do not all adhere to the same standards when providing travel advices. Within the collection phase, we therefore probably need many different scripts that collect travel advices from many different places and transform these in one unified format that can be used throughout.
 
 In the end, we should also make sure we collect historic data. This phase, however, will focus on collecting a snapshot (and we deal with history later).
@@ -36,5 +40,15 @@ We can start with a few countries, also to test what the unified format can look
 - [UK](https://www.gov.uk/foreign-travel-advice)
     - Website is [open source](https://github.com/alphagov/travel-advice-publisher) (good for the UK!!!). The website uses an [API](https://github.com/alphagov/travel-advice-publisher/blob/main/docs/further_technical_information.md). We should be able to reverse engineer this!
 - [USA](https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html/)
+    - Mweh, why not the empire as well. Seems at least doable.
 
+## Unified database
+In the basis we can use the same tables as in collection. 
+- To build a historic collection, we can add a date of collection and indicator whether this is the last data collected from the specific government.
+- We should add a table with information on ISO 3166 country codes.
+- A table translating the labels from each government into a harmonized framework. 
+- Add an AI-translation of information provided by each government (?)
+- 
 
+## Visualization
+We have a database and after that we can think of many, many ways to visualize the data :).
