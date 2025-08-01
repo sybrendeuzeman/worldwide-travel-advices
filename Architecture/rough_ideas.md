@@ -48,7 +48,6 @@ In the basis we can use the same tables as in collection.
 - We should add a table with information on ISO 3166 country codes.
 - A table translating the labels from each government into a harmonized framework. 
 - Add an AI-translation of information provided by each government (?)
-- 
 
 ## Visualization
 We have a database and after that we can think of many, many ways to visualize the data :).
