@@ -1,0 +1,61 @@
+Ik heb een taakje voor je! Ik wil graag de reisadviezen van de Nederlandse overheid in kaart brengen, vooral of het algemene advies groen, geel, oranje of rood is. Ik heb de tekst al opgehaald waar dat in staat, alleen staat het er ongestructureerd in. Ik geef per prompt een tekst.
+
+Soms zijn er meerdere reisadviezen, bijvoorbeeld voor een deel of meerdere delen van het land en een algemeen reisadvies voor de rest van het land. Kun je in die gevallen antwoorden met
+{"<deel1>" : "<reisadvies deel>", "<deel2>" : "<reisadvies deel>", "general" : "<kleurcode>"}
+waarbij je het <deel> kort en bondig omschrijft? Geef bij delen wel altijd aan over welk gebied het gaat.
+
+### Voorbeeld:
+Hieronder zijn twee gebieden genoemd. 1. regio Karabach en omringende districten, en 2. grensgebieden met Rusland en Armenië. Daarnaast wordt een advies voor de rest van het land gegeven. Daarvoor geef je ook een apart label mee.
+"""
+"<h2>In het kort</h2>\n  <ul>  <li>Sinds militaire escalatie in 2023 rond de regio Karabach is\n    de situatie aan de grens tussen Azerbeidzjan en Armeni\u00eb gespannen.\n    Lees meer onder Actueel.</li>  <li>De kleurcode van het reisadvies\n    is rood voor de regio Karabach en omringende districten, en de\n    grensgebieden met Rusland en Armeni\u00eb. Wat uw situatie ook is: reis\n    niet hierheen. Het is er te gevaarlijk. Lees meer onder Regionale\n  risico\u2019s.</li>  <li>Voor de rest van Azerbeidzjan geldt kleurcode\n    geel. U kunt hierheen reizen. Maar let op: er zijn bijzondere\n  veiligheidsrisico\u2019s.</li> </ul><div class=\"notification attention\">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href=\"https://informatieservice.nederlandwereldwijd.nl\">Meld u aan\n    voor de Informatieservice</a></div>"
+"""
+In zo'n geval kun je het volgende teruggeven
+{"Karabach en omringende districten" : "rood", "grensgebieden met Rusland en Armenië" : "rood", "Rest van Azerbeidzjan" : "geel"}
+
+
+### Voorbeeld:
+Hieronder is voor het hele land een advies gegeven. In dat geval geef je de naam van het land mee in het label.
+"""
+"<h2>In het kort</h2>\n  <ul>  <li>De algemene veiligheidssituatie in Afghanistan is slecht,\n    instabiel en onvoorspelbaar. Regelmatig worden (bom)aanslagen\n    gepleegd door terroristische groeperingen of door politieke\n    tegenstanders van de Taliban. Lees meer onder Actueel.</li>  <li>De\n    kleurcode van het reisadvies voor Afghanistan is rood. Wat uw\n    situatie ook is: reis er niet heen. Het is er te gevaarlijk.</li> </ul><div class=\"notification attention\">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href=\"https://informatieservice.nederlandwereldwijd.nl\">Meld u aan\n    voor de Informatieservice</a></div>"
+"""
+In zo'n geval kun je het volgende teruggeven
+{"Afghanistan" : "rood"}
+
+### Voorbeeld:
+Hieronder is het grensgebied tussen Armenie en Azerbeidzjan genoemd en de rest van Armenië.
+'<h2>In het kort</h2>\n    <ul>  <li>De kleurcode van het reisadvies is rood voor het\n    grensgebied     tussen Armenië en Azerbeidzjan. Wat uw situatie ook\n    is: reis niet     hierheen. Het is er te gevaarlijk. Lees meer onder\n    Regionale   risico’s.</li>  <li>Voor de rest van Armenië geldt\n    kleurcode geel. U     kunt hierheen reizen. Maar let op: er zijn\n    bijzondere   veiligheidsrisico’s.</li> </ul><div class="notification attention">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href="https://informatieservice.nederlandwereldwijd.nl">Meld u aan\n    voor de Informatieservice</a></div>'
+In zo'n geval kun je het volgende teruggeven
+{ "grensgebied Armenië en Azerbeidzjan": "rood", "Rest van Armenië: "geel"}
+
+### Voorbeeld
+Hieronder is het eiland Providenciales genoemd en de rest van de rest van de Turks- en Caicoseilanden.
+`<h2>In het kort</h2>\n   <ul>  <li>De kleurcode van het reisadvies is geel voor het eiland\n    Providenciales. U kunt erheen reizen. Maar let op: er zijn\n    bijzondere veiligheidsrisico’s. Lees meer onder Regionale\n  risico’s.</li>  <li>Voor de rest van de Turks- en Caicoseilanden geldt\n    kleurcode groen. U kunt erheen reizen. Lees welke\n    veiligheidsrisico's er zijn.</li> </ul><div class="notification attention">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href="https://informatieservice.nederlandwereldwijd.nl">Meld u aan\n    voor de Informatieservice</a></div>`
+In zo'n geval kun je het volgende teruggeven
+{ "eiland Providenciales": "geel", "Rest van de Turks- en Caicoseilanden: "groen"}
+
+
+### Voorbeeld
+Hieronder is het grensgebied tussen Belarus en Oekraïne genoemd en de rest Belarus.
+'<h2>In het kort</h2>\n         <ul>  <li>De kleurcode van het reisadvies is rood voor het\n    grensgebied     tussen Belarus en Oekraïne. Wat uw situatie ook is:\n    reis er niet     heen. Het is er te gevaarlijk. Lees meer onder\n    Regionale   risico’s.</li>  <li>Voor de rest van Belarus geldt\n    kleurcode oranje.     Reis alleen hierheen als het noodzakelijk is.\n    Het is niet veilig er     op vakantie te gaan.</li> </ul><div class="notification attention">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href="https://informatieservice.nederlandwereldwijd.nl">Meld u aan\n    voor de Informatieservice</a></div>'
+In zo'n geval kun je het volgende teruggeven
+{ "grensgebied met OekraÃ¯n": "rood", "Rest van Belarus": "oranje" }
+
+
+### Voorbeeld
+Hieronder zijn veel verschillende gebieden genoemd.
+'<h2>In het kort</h2>\n   <ul>  <li>De kleurcode van het reisadvies is rood voor de\n    grensgebieden met Marokko, Mauritanië, Mali, Niger en Libië. Dit\n    geldt ook voor de bergen rond Tebessa, en de grensstrook met Tunesië\n    ten zuiden van Tebessa. Wat uw situatie ook is: reis niet hierheen.\n    Het is er te gevaarlijk. Lees meer onder Regionale risico’s.</li>\n    <li>Voor de rest van Algerije geldt kleurcode geel. U kunt hierheen\n    reizen. Maar let op: er zijn bijzondere veiligheidsrisico’s.</li> </ul><div class="notification attention">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href="https://informatieservice.nederlandwereldwijd.nl">Meld u aan\n    voor de Informatieservice</a></div>'
+{"grensgebied met Marokko": "rood", "grensgebied met Mauritani\u00eb": "rood", "grensgebied met Mali": "rood", "grensgebied met Niger": "rood", "grensgebied met Libi\u00eb": "rood", "bergen rond Tebessa": "rood", "grensstrook met Tunesi\u00eb ten zuiden van Tebessa": "rood", "Rest van Algerije": "geel"}
+
+
+### Voorbeeld
+Hieronder zijn twee verschillende grensgebieden genoemd.
+	'<h2>In het kort</h2>\n  <ul>  <li>In Marokko is op dit moment een grote uitbraak van mazelen.\n    Lees meer onder Actueel.</li>  <li>De kleurcode van het reisadvies\n    is rood voor het grensgebied met Mauritanië. Wat uw situatie ook is:\n    reis niet hierheen. Het is er te gevaarlijk. Lees meer onder\n    Regionale risico’s.</li>  <li>Kleurcode oranje geldt voor het\n    grensgebied tussen Marokko en Algerije. Reis alleen hierheen als het\n    noodzakelijk is. Het is niet veilig er op vakantie te gaan.</li>\n    <li>Voor de rest van Marokko geldt kleurcode geel. U kunt erheen\n    reizen. Maar let op: er zijn bijzondere veiligheidsrisico’s.</li> </ul><div class="notification attention">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href="https://informatieservice.nederlandwereldwijd.nl">Meld u aan\n    voor de Informatieservice</a></div>'
+In zo'n geval kun je het volgende teruggeven
+{"grensgebied met Mauritanië" : "rood", "grensgebied Marokko en Algerije": "oranje", "Rest van Marokko": "geel" }
+
+## Voorbeeld
+Hieronder zijn twee verschillende gebieden en de rest van het land genoemd. 
+'<h2>In het kort</h2>\n  <ul>  <li>De kleurcode van het reisadvies is oranje voor de regio\n    Termiz en de grens van Oezbekistan met Afghanistan. Reis alleen\n    hierheen als het noodzakelijk is. Het is niet veilig er op vakantie\n    te gaan. Lees meer onder Regionale risico’s.</li>  <li>Voor de rest\n    van Oezbekistan geldt kleurcode geel. U kunt hierheen reizen. Maar\n    let op: er zijn bijzondere veiligheidsrisico’s.</li> </ul><div class="notification attention">E-mail ontvangen als het reisadvies\n  wijzigt en bij (dreigende) crisis? <a\n    href="https://informatieservice.nederlandwereldwijd.nl">Meld u aan\n    voor de Informatieservice</a></div>'
+{ "regio Termiz": "oranje", "grens met Afghanistan" : "oranje", "Rest van Oezbekistan": "geel" }
+
+##Reisadvies
